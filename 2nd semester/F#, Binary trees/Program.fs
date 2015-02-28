@@ -1,4 +1,5 @@
 ﻿//Зотова А., 171 гр
+//предполагаемое время выполнение 3-4 часа, итоговое - приблизительно 3 часа
 type 't tree =
   | Node of int * 't tree * 't tree
   | Nil
@@ -64,6 +65,7 @@ let rec delete x t =
 [<EntryPoint>]
 let main argv = 
   let t=Nil
+  printf "Добавим 4, 2, 3, 0, 7, 11, 5\n"
   let t = insert 4 t
   let t = insert 2 t
   let t = insert 3 t
@@ -71,14 +73,20 @@ let main argv =
   let t = insert 7 t
   let t = insert 11 t   
   let t = insert 5 t
-  let t = delete 4 t
   let h=0
   printf "LCR\n"
-  printf "%A\n", LCR t h
+  LCR t h
+  printf "Удалим 11, 4, 2\n"
+  let t = delete 11 t
+  let t = delete 4 t
+  let t = delete 2 t
+  let h=0
+  printf "LCR\n"
+  LCR t h
   let h = 0
   printf "CLR\n"
-  printf "%A\n", CLR t h
+  CLR t h
   let h=0
   printf "LRC\n"
-  printf "%A\n", LRC t h
+  LRC t h
   0
